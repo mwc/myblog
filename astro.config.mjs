@@ -7,5 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), react(), vue(), tailwind()]
+  integrations: [svelte(), react(), vue(), tailwind()],
+  site: "https://mwc.github.io",
+  base: "/myblog",
 });
