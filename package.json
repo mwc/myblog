@@ -2,6 +2,10 @@
   "name": "myblog",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@8.12.0",
+  "engines": {
+    "pnpm": "^8.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
