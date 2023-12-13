@@ -11,5 +11,13 @@ export default defineConfig({
   site: "https://mwc.github.io",
   base: "/myblog/",
   trailingSlash: "always",
-  prefetch: true,
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "src/global.scss" as *;',
+        },
+      }
+    }
+  }
 });

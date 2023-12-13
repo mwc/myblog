@@ -10,7 +10,7 @@ dependencies:
     version: 3.0.7(@types/react-dom@18.2.17)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.8)
   '@astrojs/svelte':
     specifier: ^5.0.1
-    version: 5.0.1(astro@4.0.4)(svelte@5.0.0-next.23)(typescript@5.3.3)(vite@5.0.8)
+    version: 5.0.1(astro@4.0.4)(svelte@5.0.0-next.24)(typescript@5.3.3)(vite@5.0.8)
   '@astrojs/tailwind':
     specifier: ^5.0.3
     version: 5.0.3(astro@4.0.4)(tailwindcss@3.3.6)
@@ -25,13 +25,16 @@ dependencies:
     version: 18.2.17
   astro:
     specifier: ^4.0.4
-    version: 4.0.4(typescript@5.3.3)
+    version: 4.0.4(sass@1.69.5)(typescript@5.3.3)
   react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  sass:
+    specifier: ^1.69.5
+    version: 1.69.5
   tailwindcss:
     specifier: ^3.3.6
     version: 3.3.6
@@ -50,8 +53,8 @@ devDependencies:
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.6)
   svelte:
-    specifier: 5.0.0-next.23
-    version: 5.0.0-next.23
+    specifier: 5.0.0-next.24
+    version: 5.0.0-next.24
 
 packages:
 
@@ -122,17 +125,17 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/svelte@5.0.1(astro@4.0.4)(svelte@5.0.0-next.23)(typescript@5.3.3)(vite@5.0.8):
+  /@astrojs/svelte@5.0.1(astro@4.0.4)(svelte@5.0.0-next.24)(typescript@5.3.3)(vite@5.0.8):
     resolution: {integrity: sha512-MQvm0VmkiHVBb41hkKvQKtZa2YZqImdJD23dDW6EGhFxRy1GEgJ4Hm6p4T30FXrLPQUoiay/BU5U/lHDd6ZlNg==, tarball: https://registry.npmmirror.com/@astrojs/svelte/-/svelte-5.0.1.tgz}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: ^4.0.0
       svelte: ^4.0.0 || ^5.0.0-next.1
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@5.0.0-next.23)(vite@5.0.8)
-      astro: 4.0.4(typescript@5.3.3)
-      svelte: 5.0.0-next.23
-      svelte2tsx: 0.6.27(svelte@5.0.0-next.23)(typescript@5.3.3)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@5.0.0-next.24)(vite@5.0.8)
+      astro: 4.0.4(sass@1.69.5)(typescript@5.3.3)
+      svelte: 5.0.0-next.24
+      svelte2tsx: 0.6.27(svelte@5.0.0-next.24)(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -145,7 +148,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.0.4(typescript@5.3.3)
+      astro: 4.0.4(sass@1.69.5)(typescript@5.3.3)
       autoprefixer: 10.4.16(postcss@8.4.32)
       postcss: 8.4.32
       postcss-load-config: 4.0.2(postcss@8.4.32)
@@ -180,7 +183,7 @@ packages:
       '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.0.8)(vue@3.3.11)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.6)
       '@vue/compiler-sfc': 3.3.11
-      astro: 4.0.4(typescript@5.3.3)
+      astro: 4.0.4(sass@1.69.5)(typescript@5.3.3)
       vue: 3.3.11(typescript@5.3.3)
     transitivePeerDependencies:
       - '@babel/core'
@@ -859,7 +862,7 @@ packages:
     dev: false
     optional: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@5.0.0-next.23)(vite@5.0.8):
+  /@sveltejs/vite-plugin-svelte-inspector@2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@5.0.0-next.24)(vite@5.0.8):
     resolution: {integrity: sha512-gjr9ZFg1BSlIpfZ4PRewigrvYmHWbDrq2uvvPB1AmTWKuM+dI1JXQSUu2pIrYLb/QncyiIGkFDFKTwJ0XqQZZg==, tarball: https://registry.npmmirror.com/@sveltejs/vite-plugin-svelte-inspector/-/vite-plugin-svelte-inspector-2.0.0.tgz}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
@@ -867,29 +870,29 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@5.0.0-next.23)(vite@5.0.8)
+      '@sveltejs/vite-plugin-svelte': 3.0.1(svelte@5.0.0-next.24)(vite@5.0.8)
       debug: 4.3.4
-      svelte: 5.0.0-next.23
-      vite: 5.0.8
+      svelte: 5.0.0-next.24
+      vite: 5.0.8(sass@1.69.5)
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@5.0.0-next.23)(vite@5.0.8):
+  /@sveltejs/vite-plugin-svelte@3.0.1(svelte@5.0.0-next.24)(vite@5.0.8):
     resolution: {integrity: sha512-CGURX6Ps+TkOovK6xV+Y2rn8JKa8ZPUHPZ/NKgCxAmgBrXReavzFl8aOSCj3kQ1xqT7yGJj53hjcV/gqwDAaWA==, tarball: https://registry.npmmirror.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-3.0.1.tgz}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@5.0.0-next.23)(vite@5.0.8)
+      '@sveltejs/vite-plugin-svelte-inspector': 2.0.0(@sveltejs/vite-plugin-svelte@3.0.1)(svelte@5.0.0-next.24)(vite@5.0.8)
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.5
-      svelte: 5.0.0-next.23
-      svelte-hmr: 0.15.3(svelte@5.0.0-next.23)
-      vite: 5.0.8
+      svelte: 5.0.0-next.24
+      svelte-hmr: 0.15.3(svelte@5.0.0-next.24)
+      vite: 5.0.8(sass@1.69.5)
       vitefu: 0.2.5(vite@5.0.8)
     transitivePeerDependencies:
       - supports-color
@@ -1029,7 +1032,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.6)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.0.8
+      vite: 5.0.8(sass@1.69.5)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -1044,7 +1047,7 @@ packages:
       '@babel/core': 7.23.6
       '@babel/plugin-transform-typescript': 7.23.6(@babel/core@7.23.6)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.6)
-      vite: 5.0.8
+      vite: 5.0.8(sass@1.69.5)
       vue: 3.3.11(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1057,7 +1060,7 @@ packages:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.8
+      vite: 5.0.8(sass@1.69.5)
       vue: 3.3.11(typescript@5.3.3)
     dev: false
 
@@ -1239,7 +1242,7 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==, tarball: https://registry.npmmirror.com/array-iterate/-/array-iterate-2.0.1.tgz}
     dev: false
 
-  /astro@4.0.4(typescript@5.3.3):
+  /astro@4.0.4(sass@1.69.5)(typescript@5.3.3):
     resolution: {integrity: sha512-KhwoF5//kFusczKN46ZG185uk9BQt1OH5949wsrFKs0z7Oo/o31XyxKyqIW8ZSL0fWU4XYKSdYlAo1RaPF9TtA==, tarball: https://registry.npmmirror.com/astro/-/astro-4.0.4.tgz}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1300,7 +1303,7 @@ packages:
       tsconfck: 3.0.0(typescript@5.3.3)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.0.8
+      vite: 5.0.8(sass@1.69.5)
       vitefu: 0.2.5(vite@5.0.8)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -2154,6 +2157,10 @@ packages:
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==, tarball: https://registry.npmmirror.com/ieee754/-/ieee754-1.2.1.tgz}
+    dev: false
+
+  /immutable@4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==, tarball: https://registry.npmmirror.com/immutable/-/immutable-4.3.4.tgz}
     dev: false
 
   /import-meta-resolve@4.0.0:
@@ -3503,6 +3510,16 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==, tarball: https://registry.npmmirror.com/safer-buffer/-/safer-buffer-2.1.2.tgz}
     dev: false
 
+  /sass@1.69.5:
+    resolution: {integrity: sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==, tarball: https://registry.npmmirror.com/sass/-/sass-1.69.5.tgz}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+    dev: false
+
   /sax@1.3.0:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==, tarball: https://registry.npmmirror.com/sax/-/sax-1.3.0.tgz}
     dev: false
@@ -3754,16 +3771,16 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==, tarball: https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz}
     engines: {node: '>= 0.4'}
 
-  /svelte-hmr@0.15.3(svelte@5.0.0-next.23):
+  /svelte-hmr@0.15.3(svelte@5.0.0-next.24):
     resolution: {integrity: sha512-41snaPswvSf8TJUhlkoJBekRrABDXDMdpNpT2tfHIv4JuhgvHqLMhEPGtaQn0BmbNSTkuz2Ed20DF2eHw0SmBQ==, tarball: https://registry.npmmirror.com/svelte-hmr/-/svelte-hmr-0.15.3.tgz}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
     dependencies:
-      svelte: 5.0.0-next.23
+      svelte: 5.0.0-next.24
     dev: false
 
-  /svelte2tsx@0.6.27(svelte@5.0.0-next.23)(typescript@5.3.3):
+  /svelte2tsx@0.6.27(svelte@5.0.0-next.24)(typescript@5.3.3):
     resolution: {integrity: sha512-E1uPW1o6VsbRz+nUk3fznZ2lSmCITAJoNu8AYefWSvIwE2pSB01i5sId4RMbWNzfcwCQl1DcgGShCPcldl4rvg==, tarball: https://registry.npmmirror.com/svelte2tsx/-/svelte2tsx-0.6.27.tgz}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
@@ -3771,12 +3788,12 @@ packages:
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: 5.0.0-next.23
+      svelte: 5.0.0-next.24
       typescript: 5.3.3
     dev: false
 
-  /svelte@5.0.0-next.23:
-    resolution: {integrity: sha512-AA93p8SQmVHpEJ8ByJK+n3/CnSj3pv8YkC0kp/5CzESYfBwwIWyFfMICOL5F7L2gbLxVW7Ym6Vd7j/keAZktQA==, tarball: https://registry.npmmirror.com/svelte/-/svelte-5.0.0-next.23.tgz}
+  /svelte@5.0.0-next.24:
+    resolution: {integrity: sha512-/vWMDV9oS448GPKaJ6Y6KUIBFLwWYfDBxVW3cb0nek85jvvhW0KaOShyZ1w0n4Vl//0zL8k6VOwxeV+PSCFBIw==, tarball: https://registry.npmmirror.com/svelte/-/svelte-5.0.0-next.24.tgz}
     engines: {node: '>=18'}
     dependencies:
       '@ampproject/remapping': 2.2.1
@@ -4096,7 +4113,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite@5.0.8:
+  /vite@5.0.8(sass@1.69.5):
     resolution: {integrity: sha512-jYMALd8aeqR3yS9xlHd0OzQJndS9fH5ylVgWdB+pxTwxLKdO1pgC5Dlb398BUxpfaBxa4M9oT7j1g503Gaj5IQ==, tarball: https://registry.npmmirror.com/vite/-/vite-5.0.8.tgz}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4127,6 +4144,7 @@ packages:
       esbuild: 0.19.9
       postcss: 8.4.32
       rollup: 4.8.0
+      sass: 1.69.5
     optionalDependencies:
       fsevents: 2.3.3
     dev: false
@@ -4139,7 +4157,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.0.8
+      vite: 5.0.8(sass@1.69.5)
     dev: false
 
   /vue@3.3.11(typescript@5.3.3):
