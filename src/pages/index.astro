@@ -1,18 +1,19 @@
 ---
-const title = 'my blog'
-const lang = 'zh-cn'
+
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang="zh-cn">
     <head>
+        <base href="/myblog/" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
-        <title>{title}</title>
+        <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+        <title>my blog</title>
     </head>
     <body>
-        <h1 class="text-3xl">hello, my Astro site.</h1>
-        <h2>try github actions.</h2>
+        <h1 class="text-3xl p-4">Ziyu Blog</h1>
+        <hr />
+        <a href="about">about</a>
     </body>
 </html>
