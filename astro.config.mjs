@@ -9,5 +9,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [svelte(), react(), vue(), tailwind()],
   site: "https://mwc.github.io",
-  base: "/myblog",
+  base: "/myblog/",
+  trailingSlash: "always",
 });
