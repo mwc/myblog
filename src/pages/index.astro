@@ -1,26 +1,7 @@
 ---
-
+import Layout from '@lib/layouts/base.astro'
 ---
 
-<!doctype html>
-<html lang="zh-cn">
-    <head>
-        <base href="/myblog/" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
-        <title>my blog</title>
-    </head>
-    <body>
-        <div>
-            <h1>Ziyu Blog</h1>
-            <hr />
-            <a data-astro-prefetch href="about/" class="change-it">about</a>
-        </div>
-        <style lang="scss">
-            div {
-                h1 { @apply text-3xl p-4 text-red-500 }
-            }
-        </style>
-    </body>
-</html>
+<Layout>
+    hello
+</Layout>
