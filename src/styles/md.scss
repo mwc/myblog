@@ -1,0 +1,19 @@
+.content {
+    font-family: "微软雅黑", "Microsoft YaHei";
+
+    h1 {
+        @apply text-xl font-bold;
+    }
+
+    p {
+        @apply my-6 leading-7 text-gray-700;
+    }
+
+    a {
+        @apply text-[--primary] hover:text-yellow-600;
+    }
+
+    code {
+        @apply bg-slate-200 rounded p-1 mx-1 text-sm text-slate-600;
+    }
+}
