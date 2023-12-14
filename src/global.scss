@@ -1,0 +1,20 @@
+:root {
+    --primary: #F4AF17;
+}
+
+::selection {
+    @apply bg-[--primary] text-white;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:link,
+a:focus,
+input,
+button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+    text-decoration: none;
+}
