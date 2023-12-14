@@ -90,6 +90,7 @@ $ chmod 777 .
 ```
 # LLVM 的路径，不是 brew 安装的话可能是其他路径
 /opt/homebrew/opt/llvm@16/bin
+
 # ${bun 源码根目录}/build
 /Users/ziyu/bun/build
 ```
@@ -98,11 +99,13 @@ $ chmod 777 .
 
 在源码根目录打开终端，执行源码根目录下的 `scripts/setup.sh` 开始编译源码：
 ```
-# 如果前面没有配置 PATH，需要下方这行先配置 LLVM 到 PATH
+# 如果前面没有配置 PATH，
+# 需要下方这行先配置 LLVM 到 PATH
 $ export PATH="$(brew --prefix llvm@16)/bin:$PATH"
 
 # 可以使用：
 $ bun setup
+
 # 或者 bash 命令，两者选其一：
 $ bash ./scripts/setup.sh
 ```

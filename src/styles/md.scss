@@ -1,5 +1,5 @@
 .content {
-    font-family: "微软雅黑", "Microsoft YaHei";
+    @apply break-all font-['微软雅黑','Microsoft_YaHei'];
 
     h1 {
         @apply text-xl font-bold my-8;
@@ -18,11 +18,15 @@
     }
 
     code {
-        @apply bg-slate-100 rounded px-2 py-1 mx-1 text-sm text-slate-800;
+        @apply bg-slate-100 rounded px-2 py-1 mx-1 text-sm text-slate-800 font-[Consola];
+    }
+
+    img {
+        @apply mx-auto;
     }
 
     pre {
-        @apply p-4 rounded;
+        @apply p-4 rounded bg-slate-50;
 
         code {
             @apply bg-transparent text-slate-100 p-0 m-0;
