@@ -13,7 +13,7 @@ const { title } = Astro.props
         <title>{title || "ZiYu's blog"}</title>
     </head>
     <body>
-        <header class="px-4 flex items-center justify-between">
+        <header class="px-6 flex items-center justify-between">
             <a href=".">
                 <img class="h-16" src="https://avatars.githubusercontent.com/u/119984?v=4" alt="ZiYu's blog" />
             </a>
@@ -34,15 +34,19 @@ const { title } = Astro.props
                 </a>
             </div>
         </header>
-        <nav class="bg-[--primary] p-4">
+        <nav class="bg-[--primary] py-4 px-6">
             <ul class="flex items-center gap-10 text-black [&_a:hover]:text-[#824513] [&_a:hover]:underline">
                 <li><a href=".">Home</a></li>
                 <li><a href="about/">About</a></li>
             </ul>
         </nav>
-        <div class="p-4">
+        <div class="py-4 px-6">
             <slot />
-            <slot name="abc" />
         </div>
+        <footer class="py-6 border-t flex justify-center">
+            <a href=".">
+                <img class="h-16 grayscale" src="https://avatars.githubusercontent.com/u/119984?v=4" alt="ZiYu's blog" />
+            </a>
+        </footer>
     </body>
 </html>

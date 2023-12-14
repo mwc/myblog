@@ -2,11 +2,15 @@
     font-family: "微软雅黑", "Microsoft YaHei";
 
     h1 {
-        @apply text-xl font-bold;
+        @apply text-xl font-bold my-8;
+    }
+
+    h2 {
+        @apply text-lg my-8 font-bold;
     }
 
     p {
-        @apply my-6 leading-7 text-gray-700;
+        @apply my-6 leading-7 text-gray-900;
     }
 
     a {
@@ -14,6 +18,14 @@
     }
 
     code {
-        @apply bg-slate-200 rounded p-1 mx-1 text-sm text-slate-600;
+        @apply bg-slate-100 rounded px-2 py-1 mx-1 text-sm text-slate-800;
+    }
+
+    pre {
+        @apply p-4 rounded;
+
+        code {
+            @apply bg-transparent text-slate-100 p-0 m-0;
+        }
     }
 }
