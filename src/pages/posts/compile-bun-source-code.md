@@ -6,13 +6,7 @@ author: '前端子鱼'
 cover: '/myblog/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
 ---
 
-> 又一个运行时，
->
-> 还有完没完？`Node.js` 不够用吗？
->
-> 我的天呐！！！
-
-在《[使用 Bun 创建与运行 SvelteKit 项目](https://zhuanlan.zhihu.com/p/664106888)》一文中，我已尝试过使用 `Bun` 这个运行时替换掉 `Node.js`，目前一帆风顺，安装遂心应手，回归测试无往不利，跑起来畅通无阻，均没碰上问题，顺利得有点出人意料。
+在《[使用 Bun 创建与运行 SvelteKit 项目](./posts/create-run-kit-using-bun/)》一文中，我已尝试过使用 `Bun` 这个运行时替换掉 `Node.js`，目前一帆风顺，安装遂心应手，回归测试无往不利，跑起来畅通无阻，均没碰上问题，顺利得有点出人意料。
 
 就躬身体验而言，尚且可以，值得一试；没感觉到快多少，可能 `Node.js` 本身就已经足够快，譬如生成过程耗时 `500` 毫秒和 `5` 毫秒之间相比，看似 `100` 倍惊人的巨大的差距，感官上未必体会得出来，你要说两者都是 “一瞬间” 就完成了也说得过去。
 
@@ -38,7 +32,7 @@ cover: '/myblog/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
 
 ## 1、clone bun 源码库
 
-```
+```bash
 $ git clone https://github.com/oven-sh/bun.git
 ```
 克隆完成后，不要着急在 `vscode` 打开源码库，否则让你安装一堆扩展，可以留到生成完毕后再安装不迟。
@@ -48,7 +42,8 @@ $ git clone https://github.com/oven-sh/bun.git
 有点意思，编译 `Bun` 源码之前，你得需要一个现有的 `Bun`，因为 `setup.sh` 过程有些脚本是 `bun` 生成的。
 
 `NPM` 或 `PNPM`：
-```
+
+```bash
 $ npm install -g bun
 
 # 或者
@@ -57,13 +52,13 @@ $ pnpm add -g bun
 
 或者使用 `brew`：
 
-```
+``` bash
 $ brew tap oven-sh/bun
 $ brew install bun
 ```
 ## 3、安装 LLVM 和 ninja 等编译和构建工具
 
-```
+``` bash
 $ brew install llvm@16 automake ccache cmake coreutils gnu-sed go libiconv libtool ninja pkg-config rust
 ```
 我看怎么连 `go`、`rust` 也搞上了。
@@ -72,7 +67,8 @@ $ brew install llvm@16 automake ccache cmake coreutils gnu-sed go libiconv libto
 
 `Zig` 是 `Bun` 的实现语言，因此是必须的。
 通过下方命令下载的是 `Bun` 所使用的 `Zig` 版本：
-```
+
+``` bash
 $ bun install -g @oven/zig
 ```
 
@@ -80,7 +76,7 @@ $ bun install -g @oven/zig
 
 自行下载的 `Zig` 解压后，覆盖 `~/.bun/install/global/node_modules/@oven/zig/` 文件夹下所有文件或文件夹即可，同时，你需要给上方文件夹可执行权限，以 `MacOS` 为例，在上方的  `@oven/zig` 文件夹打开终端，输入下方命令：
 
-```
+``` bash
 $ chmod 777 .
 ```
 
@@ -96,7 +92,7 @@ $ chmod 777 .
 
 我建议先设置好 `$PATH`，后续麻烦事少一些，你最好先将下方的路径加入到 `PATH`（不管当前是否已经存在），以修改 `MacOS` 下的 `/etc/paths` 为例：
 
-```
+``` bash
 # LLVM 的路径，不是 brew 安装的话可能是其他路径
 /opt/homebrew/opt/llvm@16/bin
 
@@ -107,7 +103,8 @@ $ chmod 777 .
 # 二、开始编译 Bun 源码
 
 在源码根目录打开终端，执行源码根目录下的 `scripts/setup.sh` 开始编译源码：
-```
+
+``` bash
 # 如果前面没有配置 PATH，
 # 需要下方这行先配置 LLVM 到 PATH
 $ export PATH="$(brew --prefix llvm@16)/bin:$PATH"
@@ -127,7 +124,7 @@ $ bash ./scripts/setup.sh
 
 然后打开 `scripts/download-webkit.sh` 文件（`Windows` 下打开 `download-webkit.ps1` ），注释掉第 `56～62` 行的 `curl` 下载命令（`Windows` 下注释 `ps1` 文件中的 `25 ～ 32` 行）：
 
-```
+``` bash
 rm -rf "$OUTDIR"
 
 # 注释掉下方的代码
@@ -176,7 +173,7 @@ https://github.com/zigtools/zls/wiki/Installation
 
 `setup.sh` 执行一次即可，后续更改了代码后，只需运行下方命令重新编译连接即可：
 
-```
+``` bash
 $ ninja -Cbuild
 ```
 
@@ -190,13 +187,13 @@ $ ninja -Cbuild
 
 如果在前面第一节你已将 `bun` 源码目录下的 `build` 纳入 `PATH`，那么直接就可以运行：
 
-```
+``` bash
 $ bun-debug
 ```
 
 否则你需在源码根目录打开终端，执行：
 
-```
+``` bash
 $ ./build/bun-debug
 ```
 
@@ -206,4 +203,4 @@ $ ./build/bun-debug
 
 至此，`bun` 已任由你肆意蹂躏摧残了。
 
-参考链接：https://link.zhihu.com/?target=https%3A//bun.sh/docs/project/contributing
+参考链接：https://bun.sh/docs/project/contributing
