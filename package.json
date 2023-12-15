@@ -20,7 +20,7 @@
     "@astrojs/vue": "^4.0.3",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.17",
-    "astro": "^4.0.4",
+    "astro": "^4.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
@@ -31,7 +31,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "svelte": "5.0.0-next.24"
+    "svelte": "5.0.0-next.25"
   },
   "prettier": {
     "printWidth": 120,
