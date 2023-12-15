@@ -5,15 +5,17 @@ const { frontmatter } = Astro.props
 ---
 
 <Layout title={'$ - ' + frontmatter.title}>
-    <h1 class="font-bold text-3xl my-2 tracking-tight">{frontmatter.title}</h1>
-    <div class="flex text-sm text-gray-400 gap-8 mb-10">
-        <span>{frontmatter.author}</span>
-        <span>发布于 {frontmatter.publish}</span>
+    <div class="container mx-auto">
+        <h1 class="font-bold text-3xl my-2 tracking-tight">{frontmatter.title}</h1>
+        <div class="flex text-sm text-gray-400 gap-8 mb-10">
+            <span>{frontmatter.author}</span>
+            <span>发布于 {frontmatter.publish}</span>
+        </div>
+        <div class="my-6 flex justify-center">
+            <img src={frontmatter.cover} alt="" />
+        </div>
+        <article class="mt-8 content">
+            <slot />
+        </article>
     </div>
-    <div class="my-6 flex justify-center">
-        <img src={frontmatter.cover} alt="" />
-    </div>
-    <article class="mt-8 content">
-        <slot />
-    </article>
 </Layout>
