@@ -25,6 +25,10 @@
         @apply mx-auto;
     }
 
+    blockquote {
+        @apply my-6 border-l-4 bg-gray-100 border-l-gray-300 px-4 py-2 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
+    }
+
     pre {
         @apply p-4 rounded bg-slate-50;
 
