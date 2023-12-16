@@ -35,6 +35,7 @@ cover: '/myblog/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
 ```bash
 $ git clone https://github.com/oven-sh/bun.git
 ```
+
 克隆完成后，不要着急在 `vscode` 打开源码库，否则让你安装一堆扩展，可以留到生成完毕后再安装不迟。
 
 ## 2、安装 Bun
@@ -56,11 +57,13 @@ $ pnpm add -g bun
 $ brew tap oven-sh/bun
 $ brew install bun
 ```
+
 ## 3、安装 LLVM 和 ninja 等编译和构建工具
 
 ``` bash
 $ brew install llvm@16 automake ccache cmake coreutils gnu-sed go libiconv libtool ninja pkg-config rust
 ```
+
 我看怎么连 `go`、`rust` 也搞上了。
 
 ## 4、安装 Zig

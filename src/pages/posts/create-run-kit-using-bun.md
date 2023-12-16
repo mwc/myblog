@@ -100,6 +100,7 @@ $ bun --bun run dev
 ```bash
 $ bun run build
 ```
+
 部署到服务器后，进入站点的根目录，你可以通过下方命令来跑起你的站点：
 
 ```bash
