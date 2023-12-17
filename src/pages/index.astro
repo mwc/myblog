@@ -7,14 +7,16 @@ const posts = await Astro.glob('./posts/*.md')
 
 <Layout>
     <Subject title="最新文章">
-        <ul class="list-disc list-inside leading-10">
+        <ul role="list">
             {
                 posts.map((post) => (
-                    <li>
-                        <a class="align-middle hover:underline hover:text-orange-600" href={post.url}>
+                    <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:leading-6">
+                        <a class="align-middle hover:underline hover:text-orange-600 flex-auto pl-3" href={post.url}>
                             {post.frontmatter.title}
                         </a>
-                        <span class="text-xs align-middle text-gray-400 ml-5">({post.frontmatter.publish})</span>
+                        <span class="text-xs font-mono align-middle shrink-0 grow-0 text-gray-400 text-right w-32 leading-6">
+                            {post.frontmatter.publish}
+                        </span>
                     </li>
                 ))
             }
