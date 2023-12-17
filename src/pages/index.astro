@@ -1,16 +1,23 @@
 ---
 import Layout from '@lib/layouts/base.astro'
+import { Subject } from '@components'
 
-const posts = await Astro.glob('./posts/**/*.md')
+const posts = await Astro.glob('./posts/*.md')
 ---
 
 <Layout>
-    <ul class="list-disc list-inside leading-10">
-        {posts.map((post) => 
-            <li>
-                <a class="align-middle hover:underline hover:text-orange-600" href={post.url}>{post.frontmatter.title}</a>
-                <span class="text-xs align-middle text-gray-400 ml-5">({post.frontmatter.publish})</span>
-            </li>
-        )}
-    </ul>
+    <Subject title="最新文章">
+        <ul class="list-disc list-inside leading-10">
+            {
+                posts.map((post) => (
+                    <li>
+                        <a class="align-middle hover:underline hover:text-orange-600" href={post.url}>
+                            {post.frontmatter.title}
+                        </a>
+                        <span class="text-xs align-middle text-gray-400 ml-5">({post.frontmatter.publish})</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </Subject>
 </Layout>
