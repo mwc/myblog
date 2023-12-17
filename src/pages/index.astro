@@ -1,10 +1,16 @@
 ---
 import Layout from '@lib/layouts/base.astro'
+
+const posts = await Astro.glob('./posts/**/*.md')
 ---
 
 <Layout>
-    <ul class="list-disc list-inside leading-9">
-        <li><a href="./posts/compile-bun-source-code/">编译 Bun 源码</a></li>
-        <li><a href="./posts/create-run-kit-using-bun/">使用 Bun 创建与运行 SvelteKit 项目</a></li>
+    <ul class="list-disc list-inside leading-10">
+        {posts.map((post) => 
+            <li>
+                <a class="align-middle hover:underline hover:text-orange-600" href={post.url}>{post.frontmatter.title}</a>
+                <span class="text-xs align-middle text-gray-400 ml-5">({post.frontmatter.publish})</span>
+            </li>
+        )}
     </ul>
 </Layout>
