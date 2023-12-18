@@ -1,6 +1,6 @@
 ---
 import Layout from '@lib/layouts/base.astro'
-import { Subject } from '@components'
+import { Subject, ArticleList, Tags } from '@components'
 
 const posts = await Astro.glob('./posts/*.md')
 
@@ -17,36 +17,7 @@ let tags = posts.reduce((set, post) => {
 
 <Layout>
     <section class="sm:flex gap-20 justify-between">
-        <Subject title="最新文章" class="flex-auto">
-            <ul role="list">
-                {
-                    posts.map((post) => (
-                        <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:leading-5 space-x-6">
-                            <span class="text-xs font-mono shrink-0 grow-0 text-gray-400 min-w-[120px] leading-6 ml-3">
-                                [{post.frontmatter.publish}]
-                            </span>
-                            <a
-                                class="hover:underline hover:text-orange-600"
-                                href={post.url}
-                            >
-                                {post.frontmatter.title}
-                            </a>
-                            
-                        </li>
-                    ))
-                }
-            </ul>
-        </Subject>
-        <Subject title="Tags">
-            <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
-                {
-                    Object.keys(tags).map((tag) => (
-                        <a class="hover:underline hover:text-orange-600" href={`./tags/${tag}/`}>
-                            {tag}({tags[tag]})
-                        </a>
-                    ))
-                }
-            </div>
-        </Subject>
+        <ArticleList posts={posts} />
+        <Tags data={tags} />
     </section>
 </Layout>

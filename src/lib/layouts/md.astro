@@ -7,10 +7,22 @@ const { frontmatter } = Astro.props
 
 <Layout title={'$ - ' + frontmatter.title}>
     <div class="container lg:max-w-6xl mx-auto">
-        <h1 class="font-bold text-3xl my-2 tracking-tight">{frontmatter.title}</h1>
-        <div class="flex text-sm text-gray-400 gap-8 mb-10">
+        <h1 class="font-bold text-3xl mt-2 my-4 tracking-tight">{frontmatter.title}</h1>
+        <div class="flex flex-wrap text-sm text-gray-400 gap-x-8 gap-y-2 mb-10">
             <span>{frontmatter.author}</span>
-            <span>发布于 {frontmatter.publish}</span>
+            <span>发布于: {frontmatter.publish}</span>
+            <span>
+                <span>Tags:</span>
+                <span class="space-x-3">
+                    {
+                        frontmatter.tag?.map((t) => (
+                            <a class="text-black hover:underline hover:text-orange-600" href={`./tags/${t}/`}>
+                                {t}
+                            </a>
+                        ))
+                    }
+                </span>
+            </span>
         </div>
         <div class="my-6 flex justify-center">
             <img src={frontmatter.cover} alt="" />
