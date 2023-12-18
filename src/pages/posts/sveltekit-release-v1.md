@@ -1,0 +1,142 @@
+---
+layout: '@lib/layouts/md.astro'
+author: '前端子鱼'
+title: 'SvelteKit正式发布v1.0！'
+tag: ['SvelteKit']
+publish: '2022-12-18 23:11'
+---
+
+> 让 Web 开发，犹如行云流水。
+
+经过时逾两年的开发，`SvelteKit` 终于抵达 `v1.0`（2022-12-14）！今天的 `SvelteKit`，已适用于构建各种类型及规模的应用程序。
+
+这个版本得以发布，系汇集了 `Svelte` 核心团队与社区数千小时的智慧结晶，委实难掩兴奋之情，让人心潮澎湃，而且与社区紧密合作的工作方式，我们确信那是构建产品级网站的最为令人愉快的方式，无论你是小型项目的独立开发者，还是身居大型团队的一员。
+
+接下来，请运行 `npm create svelte@latest`，并 [参阅文档](https://kit.svelte.dev/docs) 和 [交互式教程](https://learn.svelte.dev/) (目前处于实验阶段)开始尝试上手。
+
+# SvelteKit 是什么？
+
+`SvelteKit` 是一个基于 [Svelte](https://svelte.dev/) 之上，用于构建 Web 应用程序的框架。`Svelte` 作为一个 UI [组件框架](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks)，[开发者](https://2021.stateofjs.com/en-US/libraries/front-end-frameworks/)——[喜欢](https://twitter.com/Rich_Harris/status/1589675637195042817)它的性能和易用性。
+
+若你使用过类似 `Svelte` 的组件框架，自然知道用它来构建用户界面，会比直接使用 `DOM` 来得更易。然而也引出了一系列的疑问没有解决：
+
+- 我如何组织我的代码？
+- 我如何在服务端渲染？
+- 我如何添加适用于服务器和浏览器的路由？
+- 我如何使得客户端路由可访问？
+- 我如何获取数据？
+- 我如何改变数据？
+- 我如何处理错误？
+- 我如何优化我的生产构建？
+- 我如何明智且安全地处理环境变量？
+- 我如何添加 `CSP headers` 和 `CSRF` 保护？
+- 我如何添加一个知道应该缓存什么内容的 `service worker`？
+- 我如何准备发布我的应用？
+- 框架旨在回答这些问题。
+
+`SvelteKit` 的设计灵感来自大量的 `Beta` 测试人员反馈的真实世界中的需求（其中已有相当一部分用户已在生产环境中运行 `SvelteKit` 一段时间了 —— 我们向你的勇气致敬，并感谢你提供了宝贵的反馈），以及参考更多其他框架的绝佳想法，包括 [Next.js](https://nextjs.org/) 和 [Remix](https://remix.run/)。
+
+# 它与其他框架有何区别？
+
+当今的 Web 开发者身处福中，有众多框架自由选择，可以挑三拣四，恃宠而骄。
+
+除了上述框架外，还有例如 `Astro`、`Rails` 和 `Laravel` 等久经考验的服务器端框架，以及数以百万计的静态站点生成器。
+
+你应该为能够用上这些利器而感到欢心满意。
+
+而 `SvelteKit` 的方向与它们略有不同：
+
+**与传统的“多页应用”或 MPA 框架不同**，它在初始化服务器渲染并在页面 `load` 执行后，将默认为客户端导航。
+
+其目的是实现更快的页面转换、页内保持状态（例如侧边栏的滚动位置）以及使用更少的数据。它避免在每次页面加载时重新运行第三方脚本（例如分析程序）。
+
+**与传统的服务器框架不同**，它允许你使用同一种语言，而不是使用两个紧密耦合且独立的应用（一个用于生成 `HTML`，一个处理客户端交互）。
+
+由于 `SvelteKit` 可运行在任意支持 `JavaScript` 的地方，你可将用其编写的应用部署为传统的 `Node` 服务器，或者是 `Serverless` 服务器，甚至是边缘服务器。
+
+与静态站点生成器不同，允许你使用个性化或动态数据构建应用程序，而不必在页面加载后，还需从浏览器获取数据，从而影响性能和布局。
+
+使用 `SvelteKit`，你的应用具有强大的灵活性。许多框架都预设了构建应用的唯一正确的方法，然而现实情况更加微妙。
+
+例如，预渲染静态页面不应简单粗暴地用 `cache-control`，这显然是不对的。它还应该允许你对构建时进行验证，或者渲染你边缘函数无法访问的文件系统中的数据，以其充当数据库不稳定时的对冲。
+
+事实上并非所有的东西都需要服务器渲染（`SSR`）—— 如果希望你的应用程序具有良好且强大的 `SEO` 和高性能，这是个正确的选择，但也有很多例外情况。
+
+在 `SvelteKit` 应用中，你可以按需进行不同粒度大小的抽象 —— 例如，`Svelte` 的[本篇博客页面](https://svelte.dev/blog/announcing-sveltekit-1.0)是预渲染的，但 [REPL](https://svelte.dev/repl) 则是使用动态数据渲染的。
+
+而两者之间如需切换，仅需一行代码搞定。
+
+我们将这种使用方式构建的应用称为“可转换的应用”（[transitional apps](https://www.youtube.com/watch?v=860d8usGC0o)）。
+
+# 我应如何使用 SvelteKit？
+
+由于 `SvelteKit` 使用 [Vite](https://vitejs.dev/)，这是一种快如闪电般的构建工具，它对热模块重载、`TypeScript` 和开发者依赖的许多其他工具都有开箱即用的支持。
+
+你可从庞大的 `Vite` 和 `Rollup` 生态中安装插件，以添加对其他工具的支持。
+
+创建 `SvelteKit` 项目时，将询问你是否需要添加 [TypeScript](https://www.typescriptlang.org/)、[ESLint](https://eslint.org/)、[Prettier](https://prettier.io/)、[Playwright](https://playwright.dev/)（用于端到端浏览器测试）和 [Vitest](https://vitest.dev/)（用于单元测试）。
+
+许多流行的项目也有集成的指南，例如 [TailwindCSS](https://zhuanlan.zhihu.com/p/393582536) 和 [Supabase](https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit)。
+
+你还可以将 [Storybook](https://github.com/storybookjs/storybook/blob/next/code/frameworks/sveltekit/README.md) 和 [Histoire](https://histoire.dev/guide/svelte3/getting-started.html) 用于你的组件故事。
+
+而社区维护的 [svelte-add](https://github.com/svelte-add/svelte-add) 允许你使用一条命令，即可添加很多已经为你预设准备好的很多工具。
+
+当然，[npm](https://npmjs.com/) 上也有很多工具可供利用，不过请注意，某些包是基于 `Node.js` 的，这就只能部署到 `Node.js` 应用中使用，而不一定同时适用于类似 `Deno` 的环境。
+
+# 我可以将应用部署到哪里？
+
+任意地方！
+
+`SvelteKit CLI` 是需要本地 `Node.js` 环境的，然而框架本身输出的产物不依赖任何平台。这意味着可以将你的应用部署到任意支持运行 `JavaScript` 的地方。
+
+这种能力是通过[适配器](https://kit.svelte.dev/docs/adapters)（`adapters`）来实现的。
+
+`SvelteKit` 的发展方向，显系对 `Serverless` 倾斜，因此默认适配器 [adapter-auto](https://github.com/sveltejs/kit/tree/master/packages/adapter-auto) 是为 `Vercel`、`Netlify`、`Cloudflare Pages` 和 `Azure Static Web Apps` 提供了零配置支持，未来计划加入对更多平台的支持。
+
+社区提供了众多的适配器，例如 `Deno`、`Bun`、`Firebase`、`App Engine`、`AWS Lambda` 等等的支持。
+
+你还可以使用 [adapter-node](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) 适配器将你的应用部署到 `Node.js` 服务器。
+
+如果你的整个应用十分适宜预渲染（主要是那些内容不会频繁变更、显示信息较为稳定的页面），后者是单页应用（`SPA`），你可以使用 [adapter-static](https://github.com/sveltejs/kit/tree/master/packages/adapter-static) —— 它会将 `SvelteKit` 应用生成一个静态站点 —— 即可部署到任何网络服务器下，包括 [GitHub Pages](https://pages.github.com/)。
+
+# 致谢
+
+`v1.0` 得以发布，仰赖众人的辛勤工作。
+
+首先应该感谢的是 `Svelte` 社区，他们的反馈富有洞察力，贡献了无数个大大小小的 `PR`，使得我们可以自豪地与广泛的 Web 开发者和社区分享这个项目。
+
+当然还要感谢 [Svelte Society](https://sveltesociety.dev/) 和社区大使，他们通过 [Svelte Summit](https://www.sveltesummit.com/) 和 [Svelte Sirens](https://sveltesirens.dev/) 等倡议，为在线和 `IRL` 的 `Svelte` 开发者创造了一个充满活力与热情的地方。
+
+参与内容创作者太多了，不胜枚举，但我们要对所有围绕 `SvelteKit` 发布课程和制作教程内容的人说一句：谢谢！
+
+早在 `2021` 年初，当我们决定采用 `Vite` 时，我们算是同类框架中第一个吃螃蟹的。
+
+在当时看来，这可能是一个冒险的赌博，但我们对于结果所带来的回报感到十分满意。`Vite` 已然成为了 `JavaScript` 世界中一股势不可挡的力量，`Vite` 团队一直是个杰出而亲切的合作伙伴。
+
+我们还得到了 [Vercel](https://vercel.com/)、[Netlify](https://netlify.app/) 和 [Cloudflare](https://www.cloudflare.com/) 团队的答理支持，使得这些平台的零配置部署成为可能。
+
+我们在 [StackBlitz](https://stackblitz.com/) 的朋友经过狂热地工作，使 [learn.svelte.dev](http://learn.svelte.dev/) 得以发布，这是我们同类框架中第一个由 [WebContainer](https://blog.stackblitz.com/posts/introducing-webcontainers/) 提供支持的交互式教程。
+
+最后，项目如果没有财力支持，这一切都不可能发生。
+
+这包括 [Open Collective](https://opencollective.com/svelte) 和 `Vercel` 上数百名的 `supporters`，`Vercel` 雇用了两名核心开发人员（[Rich](https://twitter.com/Rich_Harris/) 和 [Simon](https://twitter.com/dummdidumm_/)）全职从事 `Svelte` 的工作，并以许多其他方式支持着这个项目，例如 [Steph](https://twitter.com/steph_dietz_) 的 [Beginner SvelteKit](https://vercel.com/docs/beginner-sveltekit) 课程。
+
+# 迁移
+
+如果此前你的项目已经使用了 `SvelteKit` 预发布的版本来构建，我们建议在升级到 `v1.0` 之前，首先升级到最后一次的预发布版本 —— `@sveltejs/kit@1.0.0-next.587`，因为稳定版本消除了错误和用于在预发布版本之间迁移的警告。 
+
+此外，建议你查阅[这份迁移指南](https://github.com/sveltejs/kit/discussions/5774)，尤其是你当前使用的版本低于 `1.0.0-next-406`。
+
+# 未来之路？
+
+发布 `SvelteKit v1.0` 仅仅是个起点，而不是终点。
+
+今天，`SvelteKit` 已经为正式生产部署做足准备，但我们这才刚刚开始，雏鹰展翅，崭露头角。我们的开发路线图包括内置 `i18n 支持`、`增量静态重新生成`、`精细控制发布`和`运行时`、`图像优化`以及许多计划中的改进。
+
+明年我们还将准备 `Svelte v4.0` 的工作，不久将会给出详细介绍。
+
+但我们不会乾纲独断，`Svelte` 是一个社区驱动的项目，我们许多最佳的想法根本不是出自官方规划 —— 而是出自你们之手。
+在 [Twitter](https://twitter.com/SvelteSociety) 和 [YouTube](https://youtube.com/sveltesociety) 上订阅 `Svelte Society` 以了解最新信息，并加入我们的 [Discord 聊天室](https://svelte.dev/chat)和 [GitHub](https://github.com/sveltejs) 尽情反馈。
+
+我们迫不及待想要看到你的杰作！

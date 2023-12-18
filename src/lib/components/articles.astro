@@ -11,7 +11,7 @@ const { posts } = Astro.props as { posts: MarkdownInstance<Record<string, any>>[
             posts.map((post) => (
                 <li>
                     <div class="flex items-start justify-between my-4 gap-x-4">
-                        <a class="break-words hover:underline hover:text-orange-600" href={post.url}>
+                        <a class="break-words" href={post.url}>
                             {post.frontmatter.title}
                         </a>
                         <span class="hidden sm:inline text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap flex-[120px] mt-[4px]">

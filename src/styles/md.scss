@@ -1,6 +1,14 @@
 .content {
     @apply break-all font-['微软雅黑','Microsoft_YaHei'];
 
+    ul {
+        @apply list-disc list-inside leading-8;
+    }
+
+    ol {
+        @apply list-decimal list-inside leading-8;
+    }
+
     h1 {
         @apply text-xl font-bold my-8;
     }
@@ -14,7 +22,7 @@
     }
 
     a {
-        @apply text-[--primary] hover:text-yellow-600;
+        @apply underline;
     }
 
     code {
@@ -26,7 +34,7 @@
     }
 
     blockquote {
-        @apply my-6 border-l-4 bg-gray-100 border-l-gray-300 px-4 py-2 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
+        @apply my-6 border-l-2 border-l-gray-300 px-4 py-1 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
     }
 
     pre {

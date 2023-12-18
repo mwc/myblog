@@ -2,16 +2,19 @@
 import { Subject } from '@components'
 
 const { data: tags } = Astro.props
+const keys = Object.keys(tags)
 ---
 
-<Subject title="Tags">
-    <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
-        {
-            Object.keys(tags).map((tag) => (
-                <a class="hover:underline hover:text-orange-600" href={`./tags/${tag}/`}>
-                    {tag} ({tags[tag]})
-                </a>
-            ))
-        }
-    </div>
-</Subject>
+{
+    keys.length && (
+        <Subject title="Tags">
+            <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
+                {keys.map((tag) => (
+                    <a href={`./tags/${tag}/`}>
+                        {tag} ({tags[tag]})
+                    </a>
+                ))}
+            </div>
+        </Subject>
+    )
+}
