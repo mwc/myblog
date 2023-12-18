@@ -1,8 +1,8 @@
 ---
 layout: '@lib/layouts/md.astro'
 author: '前端子鱼'
-title: '使用Bun创建与运行 SvelteKit 项目'
-tag: ['bun', 'sveltekit', 'svelte', 'qq', 'justify', 'when you live', 'astro', 'javascript']
+title: '使用Bun创建与运行SvelteKit项目'
+tag: ['Bun', 'SvelteKit']
 publish: '2023-10-30 16:55'
 cover: '/myblog/v2-5dfbe9b115fe328cafa72c557e35e7a1_1440w.webp'
 ---

@@ -5,20 +5,22 @@ import { Subject } from '@components'
 const { posts } = Astro.props as { posts: MarkdownInstance<Record<string, any>>[] }
 ---
 
-<Subject title="最新文章" class="flex-auto">
-    <ul role="list">
+<Subject title="最新文章" class="flex-auto max-w-xl">
+    <ul role="list" class="list-disc ml-4">
         {
             posts.map((post) => (
-                <li class="flex items-start justify-start my-4 gap-x-2">
-                    <span class="hidden sm:inline text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap flex-[120px] mt-[4px]">
-                        [{post.frontmatter.publish}]
-                    </span>
-                    <span class="text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap sm:hidden mt-[4px]">
-                        [{post.frontmatter.publish.split(' ')[0]}]
-                    </span>
-                    <a class="break-words hover:underline hover:text-orange-600" href={post.url}>
-                        {post.frontmatter.title}
-                    </a>
+                <li>
+                    <div class="flex items-start justify-between my-4 gap-x-4">
+                        <a class="break-words hover:underline hover:text-orange-600" href={post.url}>
+                            {post.frontmatter.title}
+                        </a>
+                        <span class="hidden sm:inline text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap flex-[120px] mt-[4px]">
+                            [{post.frontmatter.publish}]
+                        </span>
+                        <span class="text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap sm:hidden mt-[4px]">
+                            [{post.frontmatter.publish.split(' ')[0]}]
+                        </span>
+                    </div>
                 </li>
             ))
         }

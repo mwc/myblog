@@ -9,7 +9,7 @@ const { data: tags } = Astro.props
         {
             Object.keys(tags).map((tag) => (
                 <a class="hover:underline hover:text-orange-600" href={`./tags/${tag}/`}>
-                    {tag}({tags[tag]})
+                    {tag} ({tags[tag]})
                 </a>
             ))
         }

@@ -1,9 +1,9 @@
 ---
-title: '编译 Bun 源码'
+title: '编译Bun源码'
 layout: '@lib/layouts/md.astro'
 publish: '2023-11-09 15:15'
 author: '前端子鱼'
-tag: ['bun']
+tag: ['Bun']
 cover: '/myblog/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
 ---
 
