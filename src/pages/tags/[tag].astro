@@ -2,11 +2,8 @@
 import Layout from '@lib/layouts/base.astro'
 
 export const getStaticPaths = async () => [
-    { params: { tag: 'ab' } },
-    { params: { tag: 'cd' } },
-    { params: { tag: 'ef' } },
-    { params: { tag: 'gh' } },
-    { params: { tag: 'jk' } },
+    { params: { tag: 'bun' } },
+    { params: { tag: 'sveltekit' } },
 ]
 
 const { tag } = Astro.params
