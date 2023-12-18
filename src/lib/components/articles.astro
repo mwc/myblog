@@ -9,8 +9,8 @@ const { posts } = Astro.props as { posts: MarkdownInstance<Record<string, any>>[
     <ul role="list">
         {
             posts.map((post) => (
-                <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:leading-5 space-x-6">
-                    <span class="text-xs font-mono shrink-0 grow-0 text-gray-400 min-w-[120px] leading-6 ml-3">
+                <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:absolute before:-mt-1 space-x-6">
+                    <span class="text-xs font-mono shrink-0 grow-0 text-gray-400 min-w-[120px] tracking-tight leading-6 ml-4">
                         [{post.frontmatter.publish}]
                     </span>
                     <a class="hover:underline hover:text-orange-600" href={post.url}>
