@@ -16,25 +16,37 @@ let tags = posts.reduce((set, post) => {
 ---
 
 <Layout>
-    <Subject title="最新文章">
-        <ul role="list">
-            {
-                posts.map((post) => (
-                    <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:leading-6">
-                        <a class="align-middle hover:underline hover:text-orange-600 flex-auto ml-2" href={post.url}>
-                            {post.frontmatter.title}
+    <section class="sm:flex gap-20 justify-between">
+        <Subject title="最新文章" class="flex-auto">
+            <ul role="list">
+                {
+                    posts.map((post) => (
+                        <li class="flex items-start my-4 before:content-['•'] before:font-bold before:text-xl before:leading-5 space-x-6">
+                            <span class="text-xs font-mono shrink-0 grow-0 text-gray-400 min-w-[120px] leading-6 ml-3">
+                                [{post.frontmatter.publish}]
+                            </span>
+                            <a
+                                class="hover:underline hover:text-orange-600 flex-auto"
+                                href={post.url}
+                            >
+                                {post.frontmatter.title}
+                            </a>
+                            
+                        </li>
+                    ))
+                }
+            </ul>
+        </Subject>
+        <Subject title="Tags">
+            <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
+                {
+                    Object.keys(tags).map((tag) => (
+                        <a class="hover:underline hover:text-orange-600" href={`./tags/${tag}/`}>
+                            {tag}({tags[tag]})
                         </a>
-                        <span class="text-xs font-mono align-middle shrink-0 grow-0 text-gray-400 text-right w-32 leading-6">
-                            {post.frontmatter.publish}
-                        </span>
-                    </li>
-                ))
-            }
-        </ul>
-    </Subject>
-    <Subject title="Tags">
-        <div class="flex gap-8">
-            {Object.keys(tags).map((tag) => <a class="hover:underline hover:text-orange-600" href={`./tags/${tag}/`}>{tag}({tags[tag]})</a>)}
-        </div>
-    </Subject>
+                    ))
+                }
+            </div>
+        </Subject>
+    </section>
 </Layout>
