@@ -8,12 +8,12 @@ const { frontmatter } = Astro.props
 <Layout title={'$ - ' + frontmatter.title}>
     <div class="container lg:max-w-6xl mx-auto">
         <h1 class="font-bold text-3xl mt-2 my-4 tracking-tight">{frontmatter.title}</h1>
-        <div class="flex flex-wrap text-sm text-gray-400 gap-x-8 gap-y-2 mb-10">
+        <div class="flex flex-wrap text-sm text-gray-400 gap-x-4 gap-y-2 mb-10">
             <span>{frontmatter.author}</span>
             <span>发布于: {frontmatter.publish}</span>
             <span>
                 <span>Tags:</span>
-                <span class="space-x-3">
+                <span class="space-x-2">
                     {
                         frontmatter.tag?.map((t) => (
                             <a class="text-black" href={`./tags/${t}/`}>
