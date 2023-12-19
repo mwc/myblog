@@ -1,5 +1,5 @@
 .content {
-    @apply break-all font-['微软雅黑','Microsoft_YaHei'];
+    @apply break-all text-gray-600 font-['微软雅黑','Microsoft_YaHei'];
 
     ul {
         @apply list-disc ml-4 leading-8;
@@ -7,6 +7,15 @@
 
     ol {
         @apply list-decimal ml-4 leading-8;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-black;
     }
 
     h1 {
@@ -18,7 +27,7 @@
     }
 
     p {
-        @apply my-6 leading-7 text-gray-900;
+        @apply my-6 leading-7;
     }
 
     a {
@@ -34,7 +43,7 @@
     }
 
     blockquote {
-        @apply my-6 border-l-2 border-l-gray-300 px-4 py-1 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
+        @apply my-6 border-l-2 border-l-gray-300 px-4 py-0 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
     }
 
     pre {

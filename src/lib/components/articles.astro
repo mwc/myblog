@@ -8,21 +8,23 @@ const { posts } = Astro.props as { posts: MarkdownInstance<Record<string, any>>[
 <Subject title="最新文章" class="flex-auto max-w-xl">
     <ul role="list" class="list-disc ml-4">
         {
-            posts.map((post) => (
-                <li>
-                    <div class="flex items-start justify-between my-4 gap-x-4">
-                        <a class="break-words" href={post.url}>
-                            {post.frontmatter.title}
-                        </a>
-                        <span class="hidden sm:inline text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap flex-[120px] mt-[4px]">
-                            [{post.frontmatter.publish}]
-                        </span>
-                        <span class="text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap sm:hidden mt-[4px]">
-                            [{post.frontmatter.publish.split(' ')[0]}]
-                        </span>
-                    </div>
-                </li>
-            ))
+            posts
+                .sort((a, b) => new Date(b.frontmatter.publish).getTime() - new Date(a.frontmatter.publish).getTime())
+                .map((post) => (
+                    <li>
+                        <div class="flex items-start justify-between my-4 gap-x-4">
+                            <a class="break-words" href={post.url}>
+                                {post.frontmatter.title}
+                            </a>
+                            <span class="hidden sm:inline text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap flex-[120px] mt-[4px]">
+                                [{post.frontmatter.publish}]
+                            </span>
+                            <span class="text-xs font-mono tracking-tight shrink-0 grow-0 text-gray-400 whitespace-nowrap sm:hidden mt-[4px]">
+                                [{post.frontmatter.publish.split(' ')[0]}]
+                            </span>
+                        </div>
+                    </li>
+                ))
         }
     </ul>
 </Subject>
