@@ -1,5 +1,5 @@
 .content {
-    @apply break-all text-gray-600 font-['微软雅黑','Microsoft_YaHei'];
+    @apply break-all text-gray-700 font-['微软雅黑','Microsoft_YaHei'];
 
     ul {
         @apply list-disc ml-4 leading-8;
@@ -35,7 +35,7 @@
     }
 
     code {
-        @apply bg-slate-100 rounded px-2 py-[2px] mx-1 text-sm text-slate-800;
+        @apply bg-slate-200 rounded px-2 py-[2px] mx-1 text-sm;
     }
 
     img {
@@ -47,10 +47,10 @@
     }
 
     pre {
-        @apply p-4 rounded bg-slate-50;
+        @apply p-4 rounded;
 
         code {
-            @apply bg-transparent text-slate-100 p-0 m-0;
+            @apply bg-transparent p-0 m-0;
         }
     }
 }
