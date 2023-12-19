@@ -1,6 +1,9 @@
 ---
 import '@src/styles/global.scss'
-const { title } = Astro.props
+
+let { title } = Astro.props
+
+title = title ? title.replace('$', "ZiYu's blog") : "ZiYu's blog"
 ---
 
 <!doctype html>
@@ -8,9 +11,10 @@ const { title } = Astro.props
     <head>
         <base href="/myblog/" />
         <meta charset="UTF-8" />
+        {title && <meta name="description" content={title}>}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="shortcut icon" href="favicon.png" />
-        <title>{title ? title.replace('$', "ZiYu's blog") : "ZiYu's blog"}</title>
+        <title>{title}</title>
     </head>
     <body>
         <header class="px-6 flex items-center justify-between">
@@ -27,9 +31,7 @@ const { title } = Astro.props
             </div>
         </header>
         <nav class="bg-[--primary] py-4 px-6">
-            <ul
-                class="flex items-center font-semibold gap-10 text-[#61330e] [&_a:hover]:!text-black"
-            >
+            <ul class="flex items-center font-semibold gap-10 text-[#61330e] [&_a:hover]:!text-black">
                 <li><a href=".">Home</a></li>
                 <li><a href="about/">About</a></li>
             </ul>

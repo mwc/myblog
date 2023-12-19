@@ -1,0 +1,25 @@
+---
+import Layout from '@lib/layouts/base.astro'
+import { ArticleList, Tags } from '@components'
+
+const posts = await Astro.glob('../../pages/posts/*.md')
+
+let tags = posts.reduce((set, post) => {
+    let tag = new Set<string>(post.frontmatter.tag)
+
+    for (const item of tag) {
+        set[item] = (set[item] ?? 0) + 1
+    }
+
+    return set
+}, {})
+
+const { tag } = Astro.props
+---
+
+<Layout>
+    <section class="sm:flex gap-10 justify-between">
+        <ArticleList filterTag={tag} posts={posts} />
+        <Tags data={tags} />
+    </section>
+</Layout>

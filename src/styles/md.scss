@@ -31,7 +31,7 @@
     }
 
     a {
-        @apply underline;
+        @apply underline border-b border-b-gray-700 hover:border-b-orange-600;
     }
 
     code {
