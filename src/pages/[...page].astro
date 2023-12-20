@@ -16,8 +16,8 @@ const keys = Object.keys(tags)
 ---
 
 <Layout>
-    <section class="sm:flex gap-10 justify-between">
-        <Subject title={tag ? 'Tag: ' + tag : 'Newest'} class="flex-auto max-w-xl">
+    <section class="sm:flex gap-10 justify-between max-w-5xl mx-auto">
+        <Subject title={tag ? 'Tag: ' + tag : 'Newest'} class="flex-auto max-w-2xl">
             <ul role="list" class="list-disc ml-4">
                 {
                     allPosts.map((post) => (
