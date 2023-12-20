@@ -1,0 +1,15 @@
+---
+export const posts = (await Astro.glob('../../pages/posts/*.md')).sort(
+    (a, b) => new Date(b.frontmatter.publish).getTime() - new Date(a.frontmatter.publish).getTime(),
+)
+
+export const tags = posts.reduce((set, post) => {
+    let tag = new Set<string>(post.frontmatter.tag)
+
+    for (const item of tag) {
+        set[item] = (set[item] ?? 0) + 1
+    }
+
+    return set
+}, {})
+---
