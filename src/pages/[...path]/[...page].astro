@@ -1,18 +1,20 @@
 ---
+import type { GetStaticPaths } from 'astro'
 import Layout from '@lib/layouts/base.astro'
-import { Subject, data } from '@components'
+import { Subject, Pager, data } from '@components'
 
-export async function getStaticPaths({ paginate }) {
-    return [
-        ...Object.keys(data.tags).map((tag) => ({ params: { page: 'tags/' + tag }, props: { tag } })),
-        { params: { page: undefined } },
-    ]
-}
+export const getStaticPaths = (async ({ paginate }) =>
+    [undefined, ...Object.keys(data.tags)].flatMap((tag) =>
+        paginate(tag ? data.posts.filter((post) => post.frontmatter.tag.includes(tag)) : data.posts, {
+            params: { path: tag ? `tags/${tag}` : undefined },
+            props: { tag },
+            pageSize: 30,
+        }),
+    )) satisfies GetStaticPaths
 
-const { posts, tags } = data
-const { tag } = Astro.props
-const allPosts = tag ? posts.filter((post) => post.frontmatter.tag.includes(tag)) : posts
-const keys = Object.keys(tags)
+const { page, tag } = Astro.props
+const keys = Object.keys(data.tags)
+const pages = [page.currentPage]
 ---
 
 <Layout>
@@ -20,7 +22,7 @@ const keys = Object.keys(tags)
         <Subject title={tag ? 'Tag: ' + tag : 'Newest'} class="flex-auto max-w-2xl">
             <ul role="list" class="list-disc ml-4">
                 {
-                    allPosts.map((post) => (
+                    page.data.map((post) => (
                         <li>
                             <div class="flex items-start justify-between my-4 gap-x-4">
                                 <a class="break-words" href={post.url}>
@@ -37,13 +39,14 @@ const keys = Object.keys(tags)
                     ))
                 }
             </ul>
+            <Pager hideSigle {page} />
         </Subject>
         <Subject title="Tags">
             <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
                 {
                     keys.map((tag) => (
                         <a href={`./tags/${tag}/`}>
-                            {tag} ({tags[tag]})
+                            {tag} ({data.tags[tag]})
                         </a>
                     ))
                 }

@@ -1,0 +1,122 @@
+---
+const { page, hideSigle = false } = Astro.props
+
+let count = Math.ceil(page.total / page.size)
+let pages = new Set<number | Array<number>>([1])
+let cur = page.currentPage
+
+if (cur - 2 > 1) {
+    pages.add(Array.from(new Array(cur - 3)).map((_, i) => 2 + i))
+}
+
+if (cur != 1) {
+    pages.add(cur - 1)
+}
+
+pages.add(cur)
+
+if (cur != count) {
+    pages.add(cur + 1)
+}
+
+if (cur + 2 < count) {
+    pages.add(Array.from(new Array(count - cur - 2)).map((_, i) => cur + 2 + i))
+}
+
+pages.add(count)
+
+if (hideSigle && count == 1) {
+    pages.clear()
+}
+---
+
+{
+    hideSigle && count == 1 ? null : (
+        <nav class="flex items-center justify-between mt-8 border-t border-gray-100">
+            <div class="direct-box">
+                {page.url.prev && (
+                    <a href={'.' + page.url.prev} class="direct-link">
+                        <svg
+                            class="h-5 w-5 text-gray-400 hover:text-orange-600"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <span class="sm:hidden ml-3">Previous</span>
+                    </a>
+                )}
+            </div>
+            <div class="num-box relative">
+                {[...pages].map((p) =>
+                    Array.isArray(p) ? (
+                        <span tabindex="-1" class="page-num group">
+                            ...
+                            <div class="hidden overflow-scroll z-20 top-10 ml-2 -translate-x-1/2 max-w-[270px] absolute rounded-md bg-white ring-1 ring-gray-200 shadow-md flex-wrap grid-flow-col group-focus-within:grid">
+                                {p.map((item) => (
+                                    <a href={`./${item}/`} class="inline-flex items-center justify-center mb-[1px] ml-[1px] h-9 w-11 ring-1 ring-gray-200">{item}</a>
+                                ))}
+                            </div>
+                        </span>
+                    ) : p == cur ? (
+                        <span class="page-num current">{p}</span>
+                    ) : (
+                        <a href={p < 2 ? '.' : `./${p}/`} class="page-num normal">
+                            {p}
+                        </a>
+                    ),
+                )}
+            </div>
+            <div class="direct-box justify-end">
+                {page.url.next && (
+                    <a href={'.' + page.url.next} class="direct-link">
+                        <span class="sm:hidden mr-3">Next</span>
+                        <svg
+                            class="h-5 w-5 text-gray-400 hover:text-orange-600"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                )}
+            </div>
+        </nav>
+    )
+}
+
+<style lang="scss">
+    .direct-box {
+        @apply -mt-px flex w-0 flex-1;
+
+        .direct-link {
+            @apply inline-flex items-center border-t-2 border-transparent pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-orange-600;
+        }
+    }
+
+    .num-box {
+        @apply hidden md:-mt-px sm:flex;
+
+        .page-num {
+            @apply cursor-pointer inline-flex items-center border-t-2 border-transparent px-3 pt-4 text-sm font-medium;
+
+            &.current {
+                @apply cursor-default border-[--primary] text-[--primary];
+            }
+
+            &.normal {
+                @apply text-gray-500 hover:border-gray-300 hover:text-orange-600;
+            }
+        }
+    }
+</style>
