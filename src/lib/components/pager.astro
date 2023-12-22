@@ -1,10 +1,10 @@
 ---
-const { page, hideSigle = false } = Astro.props
+const { page, hideSigle = false, base = './' } = Astro.props
 
 let count = Math.ceil(page.total / page.size)
 let pages = new Set<number | Array<number>>([1])
 let cur = page.currentPage
-
+console.log(Astro.params)
 if (cur - 2 > 1) {
     pages.add(Array.from(new Array(cur - 3)).map((_, i) => 2 + i))
 }
@@ -59,14 +59,19 @@ if (hideSigle && count == 1) {
                             ...
                             <div class="hidden overflow-scroll z-20 top-10 ml-2 -translate-x-1/2 max-w-[270px] absolute rounded-md bg-white ring-1 ring-gray-200 shadow-md flex-wrap grid-flow-col group-focus-within:grid">
                                 {p.map((item) => (
-                                    <a href={`./${item}/`} class="inline-flex items-center justify-center mb-[1px] ml-[1px] h-9 w-11 ring-1 ring-gray-200">{item}</a>
+                                    <a
+                                        href={`${base}${item}/`}
+                                        class="inline-flex items-center justify-center mb-[1px] ml-[1px] h-9 w-11 ring-1 ring-gray-200"
+                                    >
+                                        {item}
+                                    </a>
                                 ))}
                             </div>
                         </span>
                     ) : p == cur ? (
                         <span class="page-num current">{p}</span>
                     ) : (
-                        <a href={p < 2 ? '.' : `./${p}/`} class="page-num normal">
+                        <a href={p != 1 ? `${base}${p}/` : base} class="page-num normal">
                             {p}
                         </a>
                     ),

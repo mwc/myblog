@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { Page, data } from '@components'
+
+export const getStaticPaths = (async ({ paginate }) =>
+    paginate(data.posts, { params: { page: undefined }, pageSize: 30 })) satisfies GetStaticPaths
+
+const { page } = Astro.props
+---
+
+<Page {page} />

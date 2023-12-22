@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { Page, data } from '@components'
+
+export const getStaticPaths = (async ({ paginate }) =>
+    Object.keys(data.tags).flatMap((tag) =>
+        paginate(
+            data.posts.filter((p) => p.frontmatter.tag.includes(tag)),
+            {
+                params: { path: tag ?? undefined },
+                props: { tag },
+                pageSize: 30,
+            },
+        ),
+    )) satisfies GetStaticPaths
+
+const { page, tag } = Astro.props
+---
+
+<Page {page} {tag} />
