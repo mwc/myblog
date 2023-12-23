@@ -34,7 +34,7 @@ Inside of my Astro project, you'll see the following folders and files:
 | `src/pages/posts/`        | all markdown article pages.                      |
 | `src/pages/tags/[path]/[...page]/` | multi-level routes for tags list, first, `path` route match which `tag`, then `[...page]` route match the page number of list |
 
-## 👀 How to use thie blog template?
+## 👀 How to use this blog template?
 
 1. `Delete` all files in `src/pages/posts/` folder.
 2. Write your blog post in `src/pages/posts/`.
