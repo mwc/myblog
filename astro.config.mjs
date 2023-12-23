@@ -11,4 +11,5 @@ export default defineConfig({
   site: "https://mwc.github.io",
   base: "/myblog/",
   trailingSlash: "always",
+  prefetch: true,
 });
