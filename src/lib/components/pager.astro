@@ -4,7 +4,7 @@ const { page, hideSigle = false, base = './' } = Astro.props
 let count = Math.ceil(page.total / page.size)
 let pages = new Set<number | Array<number>>([1])
 let cur = page.currentPage
-console.log(Astro.params)
+
 if (cur - 2 > 1) {
     pages.add(Array.from(new Array(cur - 3)).map((_, i) => 2 + i))
 }

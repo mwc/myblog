@@ -1,47 +1,41 @@
-# Astro Starter Kit: Minimal
-
-```sh
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# A personal blog written by Astro.
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of my Astro project, you'll see the following folders and files:
 
 ```text
 /
+├── .github/workflows/
+│    └── deploy.yml
 ├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+└── src/
+     ├── lib/
+     │    └── components
+     │    └── layouts
+     ├── pages/
+     │    └── [...page]/ 
+     │    └── posts/
+     │    └── tags/[path]/[...page]/
+     └── styles/
+          └── global.scss 
+          └── md.scss
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**Descriptions:**
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
+| folder                    | descriptions                                     |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `.github/workflows/`      | Github deploy file                               |
+| `public`                  | images .e.c `logo.png`                           |
+| `src/lib/`                | common `components` and `layouts`                |
+| `src/styles/`             | includes layout and markdown page's styles.      |
+| `src/pages/[...page]`     | this route will match the main page `index.html`, why use `[...page]` here? course have paginate in index.html, `[...page]` will get the page number.                   |
+| `src/pages/posts/`        | all markdown article pages.                      |
+| `src/pages/tags/[path]/[...page]/` | multi-level routes for tags list, first, `path` route match which `tag`, then `[...page]` route match the page number of list |
 
-## 👀 Want to learn more?
+## 👀 How to use thie blog template?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. `Delete` all files in `src/pages/posts/` folder.
+2. Write your blog post in `src/pages/posts/`.
+3. `*.md` file use `src/lib/layouts/md.astro` as layout.
