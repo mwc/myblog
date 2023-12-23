@@ -1,10 +1,12 @@
 ---
 title: '编译Bun源码'
 layout: '@lib/layouts/md.astro'
-publish: '2023-11-09 15:15'
+pubDate: '2023-11-09 15:15'
 author: '前端子鱼'
 tag: ['Bun']
 cover: '/myblog/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
+description: '悉闻目前网上对 `Bun` 的介绍文章，多有吹捧之嫌，我经过试验也是怅然未获惊喜，倒不至于轻率断论为 “不外如是”，逞一孔之见而自满，毕竟未究其底细，没有深入了解不好评议。'
+link: './posts/compile-bun-source-code/'
 ---
 
 在《[使用 Bun 创建与运行 SvelteKit 项目](./posts/create-run-kit-using-bun/)》一文中，我已尝试过使用 `Bun` 这个运行时替换掉 `Node.js`，目前一帆风顺，安装遂心应手，回归测试无往不利，跑起来畅通无阻，均没碰上问题，顺利得有点出人意料。

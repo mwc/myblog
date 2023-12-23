@@ -3,7 +3,9 @@ layout: '@lib/layouts/md.astro'
 author: '前端子鱼'
 title: 'SvelteKit正式发布v1.0！'
 tag: ['SvelteKit']
-publish: '2022-12-18 23:11'
+pubDate: '2022-12-18 23:11'
+description: '经过时逾两年的开发，`SvelteKit` 终于抵达 `v1.0`（2022-12-14）！今天的 `SvelteKit`，已适用于构建各种类型及规模的应用程序。'
+link: './posts/sveltekit-release-v1'
 ---
 
 > 让 Web 开发，犹如行云流水。

@@ -43,6 +43,9 @@ dependencies:
     version: 3.3.13(typescript@5.3.3)
 
 devDependencies:
+  '@astrojs/rss':
+    specifier: ^4.0.1
+    version: 4.0.1
   '@tailwindcss/aspect-ratio':
     specifier: ^0.4.2
     version: 0.4.2(tailwindcss@3.4.0)
@@ -124,6 +127,13 @@ packages:
       - supports-color
       - vite
     dev: false
+
+  /@astrojs/rss@4.0.1:
+    resolution: {integrity: sha512-fzXWsrAp17atO02OZJETM8e8McRz+dNWzMeO7ENb6xgod2nWj5mH/auPBFs1a9FzMUi1nOQmzSPHO1hxZZpkwQ==, tarball: https://registry.npmmirror.com/@astrojs/rss/-/rss-4.0.1.tgz}
+    dependencies:
+      fast-xml-parser: 4.3.2
+      kleur: 4.1.5
+    dev: true
 
   /@astrojs/svelte@5.0.2(astro@4.0.7)(svelte@5.0.0-next.26)(typescript@5.3.3)(vite@5.0.10):
     resolution: {integrity: sha512-B5h7sRXFmNvZucQlhz8MBsrsYfmVYCtcBUdDGe4ndJyBpD+klvmw31NGqhQp4z6HqxwbSWgaAvjXt/A76cgLIA==, tarball: https://registry.npmmirror.com/@astrojs/svelte/-/svelte-5.0.2.tgz}
@@ -1904,6 +1914,13 @@ packages:
       merge2: 1.4.1
       micromatch: 4.0.5
 
+  /fast-xml-parser@4.3.2:
+    resolution: {integrity: sha512-rmrXUXwbJedoXkStenj1kkljNF7ugn5ZjR9FJcwmCfcCbtOMDghPajbc+Tck6vE6F5XsDmx+Pr2le9fw8+pXBg==, tarball: https://registry.npmmirror.com/fast-xml-parser/-/fast-xml-parser-4.3.2.tgz}
+    hasBin: true
+    dependencies:
+      strnum: 1.0.5
+    dev: true
+
   /fastq@1.16.0:
     resolution: {integrity: sha512-ifCoaXsDrsdkWTtiNJX5uzHDsrck5TzfKKDcuFFTIrrc/BS076qgEIfoIy1VeZqViznfKiysPYTh/QeHtnIsYA==, tarball: https://registry.npmmirror.com/fastq/-/fastq-1.16.0.tgz}
     dependencies:
@@ -2336,7 +2353,6 @@ packages:
   /kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==, tarball: https://registry.npmmirror.com/kleur/-/kleur-4.1.5.tgz}
     engines: {node: '>=6'}
-    dev: false
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==, tarball: https://registry.npmmirror.com/lilconfig/-/lilconfig-2.1.0.tgz}
@@ -3756,6 +3772,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /strnum@1.0.5:
+    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==, tarball: https://registry.npmmirror.com/strnum/-/strnum-1.0.5.tgz}
+    dev: true
 
   /sucrase@3.34.0:
     resolution: {integrity: sha512-70/LQEZ07TEcxiU2dz51FKaE6hCTWC6vr7FOk3Gr0U60C3shtAN+H+BFr9XlYe5xqf3RA8nrc+VIwzCfnxuXJw==, tarball: https://registry.npmmirror.com/sucrase/-/sucrase-3.34.0.tgz}
