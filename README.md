@@ -37,5 +37,5 @@ Inside of my Astro project, you'll see the following folders and files:
 ## 👀 How to use this blog template?
 
 1. `Delete` all files in `src/pages/posts/` folder.
-2. Write your blog post in `src/pages/posts/`.
+2. Write your blog post in `src/pages/posts/`. Program will read all `*.md` files under this folder.
 3. `*.md` file use `src/lib/layouts/md.astro` as layout.

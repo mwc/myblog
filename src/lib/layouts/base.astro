@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import '@src/styles/global.scss'
 
 let { title } = Astro.props
@@ -11,9 +12,10 @@ title = title ? title.replace('$', "ZiYu's blog") : "ZiYu's blog"
     <head>
         <base href="/myblog/" />
         <meta charset="UTF-8" />
-        {title && <meta name="description" content={title}>}
+        {title && <meta name="description" content={title} />}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="shortcut icon" href="favicon.png" />
+        <ViewTransitions />
         <title>{title}</title>
     </head>
     <body>
@@ -40,7 +42,7 @@ title = title ? title.replace('$', "ZiYu's blog") : "ZiYu's blog"
                 <li><a href="about/">About</a></li>
             </ul>
         </nav>
-        <div class="py-4 px-6">
+        <div class="py-4 px-6" transition:animate="slide">
             <slot />
         </div>
         <footer class="py-6 border-t flex justify-center">
