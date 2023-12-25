@@ -3,7 +3,7 @@ import { Image } from 'astro:assets'
 import '@src/styles/md.scss'
 import Layout from './base.astro'
 
-const { frontmatter } = Astro.props
+const { frontmatter, headings } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/_images/*.*')
 ---
 
