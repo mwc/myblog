@@ -98,7 +98,7 @@ $ chmod 777 .
 
 我建议先设置好 `$PATH`，后续麻烦事少一些，你最好先将下方的路径加入到 `PATH`（不管当前是否已经存在），以修改 `MacOS` 下的 `/etc/paths` 为例：
 
-``` bash
+``` bash title="/etc/paths"
 # LLVM 的路径，不是 brew 安装的话可能是其他路径
 /opt/homebrew/opt/llvm@16/bin
 
@@ -110,7 +110,7 @@ $ chmod 777 .
 
 在源码根目录打开终端，执行源码根目录下的 `scripts/setup.sh` 开始编译源码：
 
-``` bash
+``` bash title="scripts/setup.sh"
 # 如果前面没有配置 PATH，
 # 需要下方这行先配置 LLVM 到 PATH
 $ export PATH="$(brew --prefix llvm@16)/bin:$PATH"
@@ -130,7 +130,7 @@ $ bash ./scripts/setup.sh
 
 然后打开 `scripts/download-webkit.sh` 文件（`Windows` 下打开 `download-webkit.ps1` ），注释掉第 `56～62` 行的 `curl` 下载命令（`Windows` 下注释 `ps1` 文件中的 `25 ～ 32` 行）：
 
-``` bash
+``` bash title="scripts/download-webkit.sh" {3-10}
 rm -rf "$OUTDIR"
 
 # 注释掉下方的代码

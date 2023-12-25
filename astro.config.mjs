@@ -9,7 +9,9 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), react(), vue(), tailwind(), expressiveCode(), mdx()],
+  integrations: [svelte(), react(), vue(), tailwind(), expressiveCode({
+    themes: ['one-dark-pro', 'light-plus']
+  }), mdx()],
   site: "https://mwc.github.io",
   base: "/myblog/",
   trailingSlash: "always",
