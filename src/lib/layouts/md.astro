@@ -3,7 +3,7 @@ import { Image } from 'astro:assets'
 import '@src/styles/md.scss'
 import Layout from './base.astro'
 
-const { frontmatter, headings, ...props } = Astro.props
+const { frontmatter, headings } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/**/_cover*.*')
 const cover = frontmatter.link.replace('.', '/src/pages') + frontmatter.cover
 ---
@@ -28,6 +28,8 @@ const cover = frontmatter.link.replace('.', '/src/pages') + frontmatter.cover
                     </span>
                 )
             }
+            <span>字数: {frontmatter.readingTime.words.toLocaleString()}</span>
+            <span>阅读时间: {Math.ceil(frontmatter.readingTime.minutes)} 分钟</span>
         </div>
         {
             frontmatter.cover && (

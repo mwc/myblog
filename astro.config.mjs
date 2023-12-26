@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { remarkReadingTime } from './src/lib/plugins/remark-reading-time.js';
 import expressiveCode from "astro-expressive-code";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
@@ -18,6 +19,9 @@ export default defineConfig({
     }),
     mdx()
   ],
+  markdown: {
+    remarkPlugins: [remarkReadingTime]
+  },
   site: "https://mwc.github.io",
   base: "/myblog/",
   trailingSlash: "always",
