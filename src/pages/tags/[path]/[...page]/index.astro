@@ -5,7 +5,7 @@ import { Page, data } from '@components'
 export const getStaticPaths = (async ({ paginate }) =>
     Object.keys(data.tags).flatMap((tag) =>
         paginate(
-            data.posts.filter((p) => p.frontmatter.tag.includes(tag)),
+            data.posts.filter((p) => p.frontmatter.tag?.includes(tag)),
             {
                 params: { path: tag ?? undefined },
                 props: { tag },
