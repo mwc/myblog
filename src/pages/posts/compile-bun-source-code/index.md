@@ -4,9 +4,9 @@ layout: '@lib/layouts/md.astro'
 pubDate: '2023-11-09 15:15'
 author: '前端子鱼'
 tag: ['Bun']
-cover: '/src/pages/posts/_images/v2-683f6951e52b2776ec8e2a2d797646eb_1440w.webp'
-description: '悉闻目前网上对 `Bun` 的介绍文章，多有吹捧之嫌，我经过试验也是怅然未获惊喜，倒不至于轻率断论为 “不外如是”，逞一孔之见而自满，毕竟未究其底细，没有深入了解不好评议。'
 link: './posts/compile-bun-source-code/'
+cover: '_cover.webp'
+description: '悉闻目前网上对 `Bun` 的介绍文章，多有吹捧之嫌，我经过试验也是怅然未获惊喜，倒不至于轻率断论为 “不外如是”，逞一孔之见而自满，毕竟未究其底细，没有深入了解不好评议。'
 ---
 
 在《[使用 Bun 创建与运行 SvelteKit 项目](./posts/create-run-kit-using-bun/)》一文中，我已尝试过使用 `Bun` 这个运行时替换掉 `Node.js`，目前一帆风顺，安装遂心应手，回归测试无往不利，跑起来畅通无阻，均没碰上问题，顺利得有点出人意料。
@@ -110,7 +110,7 @@ $ chmod 777 .
 
 在源码根目录打开终端，执行源码根目录下的 `scripts/setup.sh` 开始编译源码：
 
-``` bash title="scripts/setup.sh"
+``` bash
 # 如果前面没有配置 PATH，
 # 需要下方这行先配置 LLVM 到 PATH
 $ export PATH="$(brew --prefix llvm@16)/bin:$PATH"
@@ -130,17 +130,17 @@ $ bash ./scripts/setup.sh
 
 然后打开 `scripts/download-webkit.sh` 文件（`Windows` 下打开 `download-webkit.ps1` ），注释掉第 `56～62` 行的 `curl` 下载命令（`Windows` 下注释 `ps1` 文件中的 `25 ～ 32` 行）：
 
-``` bash title="scripts/download-webkit.sh" {3-10}
+```diff lang="bash" title="scripts/download-webkit.sh"
 rm -rf "$OUTDIR"
 
-# 注释掉下方的代码
-# if [ ! -f "$tar" ]; then
-#   echo "-- Downloading WebKit"
-#   if ! curl -o "$tar" -L "$url"; then
-#     echo "Failed to download $url"
-#     exit 1
-#   fi
-# fi
+- # 注释掉下方的代码
+- # if [ ! -f "$tar" ]; then
+- #   echo "-- Downloading WebKit"
+- #   if ! curl -o "$tar" -L "$url"; then
+- #     echo "Failed to download $url"
+- #     exit 1
+- #   fi
+- # fi
 
 tar -xzf "$tar" -C "$(dirname "$OUTDIR")" || (rm "$tar" && exit 1)
 ```
@@ -171,7 +171,7 @@ https://github.com/zigtools/zls/wiki/Installation
 
 下载后，解压至任意文件夹，然后在 `vscode` 的 `settings.json` 中，配置 `ZLS path` 为你所解压的位置，如下方示例：
 
-![sample](./_images/v2-b12dc739b8f043fb2cc4be0932276725_1440w.webp)
+![sample](./_1.webp)
 
 配置完毕后，随意打开一份 .zig 文件，然后在空白地方输入 @ 符号，看是否有一堆函数提示即可。
 
@@ -185,11 +185,11 @@ $ ninja -Cbuild
 
 下面尝试修改一下 `src/main.zig` 看看，修改为下方这样（`void` 加个叹号前缀改为 `!void`，下方加一行）：
 
-![](./_images/v2-69a4ebf09f31280ea91480213dc76ff7_1440w.webp)
+![](./_2.webp)
 
 执行 `ninja -Cbuild` 重新编译、连接，整体大概耗时 **40 ～ 60** 秒左右，成功执行后生成 `./build/bun-debug` 最终可执行文件：
 
-![](./_images/v2-4e03669296d982948dd1893410880c49_1440w.webp)
+![](./_3.webp)
 
 如果在前面第一节你已将 `bun` 源码目录下的 `build` 纳入 `PATH`，那么直接就可以运行：
 
@@ -205,7 +205,7 @@ $ ./build/bun-debug
 
 结果如下：
 
-![](./_images/v2-92e12c58bdc017772563d12e277c29a8_1440w.webp)
+![](./_4.webp)
 
 至此，`bun` 已任由你肆意蹂躏摧残了。
 

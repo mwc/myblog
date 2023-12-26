@@ -4,9 +4,9 @@ author: '前端子鱼'
 title: '使用Bun创建与运行SvelteKit项目'
 tag: ['Bun', 'SvelteKit']
 pubDate: '2023-10-30 16:55'
-cover: '/src/pages/posts/_images/v2-5dfbe9b115fe328cafa72c557e35e7a1_1440w.webp'
+link: './posts/create-run-kit-using-bun/'
+cover: '_cover.webp'
 description: '`bun` 目前对 `node` 兼容性（如 `fs/net` 等）日趋完善，因此已有不少依赖于 `node` 的库或框架可以直接跑在 `bun` 之上，`SvelteKit` 便是其中之一。'
-link: './posts/create-run-kit-using-bun'
 ---
 
 `bun` 目前对 `node` 兼容性（如 `fs/net` 等）日趋完善，因此已有不少依赖于 `node` 的库或框架可以直接跑在 `bun` 之上，`SvelteKit` 便是其中之一。

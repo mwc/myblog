@@ -3,8 +3,9 @@ import { Image } from 'astro:assets'
 import '@src/styles/md.scss'
 import Layout from './base.astro'
 
-const { frontmatter, headings } = Astro.props
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/_images/*.*')
+const { frontmatter, headings, ...props } = Astro.props
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/**/_cover*.*')
+const cover = frontmatter.link.replace('.', '/src/pages') + frontmatter.cover
 ---
 
 <Layout title={'$ - ' + frontmatter.title}>
@@ -29,7 +30,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/_i
         {
             frontmatter.cover && (
                 <div class="my-6 flex justify-center">
-                    <Image src={images[frontmatter.cover]()} alt="" />
+                    <Image src={images[cover]()} alt="" />
                 </div>
             )
         }
