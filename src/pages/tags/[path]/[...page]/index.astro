@@ -2,8 +2,6 @@
 import type { GetStaticPaths } from 'astro'
 import { sortPosts, getTags } from '@lib/util'
 import { Page } from '@components'
-import type About from '@src/pages/about.astro'
-import type Base from '@src/lib/layouts/base.astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await Astro.glob('/src/pages/posts/**/*.{md,mdx}')

@@ -1,5 +1,5 @@
 export function sortPosts(posts) {
-    return posts.toSorted((a, b) => {
+    return posts.sort((a, b) => {
         return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
     })
 }
