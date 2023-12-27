@@ -12,14 +12,14 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    expressiveCode({
-      themes: ['one-dark-pro', 'light-plus']
-    }),
-    mdx(),
     tailwind(),
     svelte(),
     react(),
     vue(),
+    expressiveCode({
+      themes: ['one-dark-pro', 'light-plus']
+    }),
+    mdx(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
