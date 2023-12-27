@@ -16,6 +16,14 @@
     h5,
     h6 {
         @apply text-black;
+
+        &:hover a {
+            display: inline;
+        }
+
+        a {
+            @apply hidden;
+        }
     }
 
     h1 {

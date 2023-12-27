@@ -28,13 +28,13 @@ const keys = Object.keys(data.tags)
                     ))
                 }
             </ul>
-            <Pager base={tag ? `./tags/${tag}/` : ''} hideSigle {page} />
+            <Pager base={tag ? `/myblog/tags/${tag}` : '/myblog'} hideSigle {page} />
         </Subject>
         <Subject title="Tags">
             <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
                 {
                     keys.map((tag) => (
-                        <a href={`./tags/${tag}/`}>
+                        <a href={`/myblog/tags/${tag}`}>
                             {tag} ({data.tags[tag]})
                         </a>
                     ))

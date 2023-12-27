@@ -12,21 +12,21 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    svelte(),
-    react(),
-    vue(),
-    tailwind(),
     expressiveCode({
       themes: ['one-dark-pro', 'light-plus']
     }),
-    mdx()
+    mdx(),
+    tailwind(),
+    svelte(),
+    react(),
+    vue(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
     // rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
   },
   site: "https://mwc.github.io",
-  base: "/myblog/",
-  trailingSlash: "always",
+  base: "/myblog",
+  // trailingSlash: "always",
   prefetch: true
 });
