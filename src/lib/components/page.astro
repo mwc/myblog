@@ -1,9 +1,9 @@
 ---
 import Layout from '@lib/layouts/base.astro'
-import { Subject, Pager, data } from '@components'
+import { Subject, Pager } from '@components'
 
-const { page, tag } = Astro.props
-const keys = Object.keys(data.tags)
+const { page, tag, tags } = Astro.props
+const keys = Object.keys(tags)
 ---
 
 <Layout>
@@ -35,7 +35,7 @@ const keys = Object.keys(data.tags)
                 {
                     keys.map((tag) => (
                         <a href={`/myblog/tags/${tag}`}>
-                            {tag} ({data.tags[tag]})
+                            {tag} ({tags[tag]})
                         </a>
                     ))
                 }

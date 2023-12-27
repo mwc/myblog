@@ -1,7 +1,6 @@
 export { default as Subject } from './subject.astro'
 export { default as Pager } from './pager.astro'
 export { default as Page } from './page.astro'
-export * as data from './data.astro'
 
 import { default as H1 } from './headings/h1.astro'
 import { default as H2 } from './headings/h2.astro'
