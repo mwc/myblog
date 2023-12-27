@@ -6,6 +6,10 @@
     @apply bg-[--primary] text-white;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a,
 a:hover,
 a:active,
