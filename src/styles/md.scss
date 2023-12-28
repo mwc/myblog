@@ -23,7 +23,7 @@
     }
 
     h1 {
-        @apply text-[1.375rem];
+        @apply text-[1.375rem] [&_a_svg]:w-6 [&_a_svg]:h-6;
     }
 
     h2 {
