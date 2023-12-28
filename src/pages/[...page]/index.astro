@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro'
 import { sortPosts, getTags } from '@lib/util'
 import { Page } from '@components'
+import type About from '../about.astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await Astro.glob('/src/pages/posts/**/*.{md,mdx}')
@@ -9,8 +10,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 
     return paginate(sortPosts(posts), { params: { page: undefined }, props: { tags }, pageSize: 30 })
 }) satisfies GetStaticPaths
-
-const { page, tags } = Astro.props
 ---
 
-<Page {page} {tags} />
+<Page {...Astro.props} />

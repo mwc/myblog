@@ -19,8 +19,6 @@ export const getStaticPaths = (async ({ paginate }) => {
         ),
     )
 }) satisfies GetStaticPaths
-
-const { page, tag, tags } = Astro.props
 ---
 
-<Page {page} {tag} {tags} />
+<Page {...Astro.props} />
