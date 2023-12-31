@@ -1,8 +1,6 @@
 ---
-import Headings from '../headings.astro'
+import Headings from './headings.astro'
 const { id } = Astro.props
 ---
 
-<Headings tag="h1" {id}>
-    <slot />
-</Headings>
+<Headings tag="h1" {id}><slot /></Headings>
