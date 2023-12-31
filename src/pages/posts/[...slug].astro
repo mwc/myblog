@@ -25,7 +25,7 @@ const cover = post.data.link.replace('.', '/src/content') + '/' + post.data.cove
         <h1 class="font-bold text-3xl mt-2 my-4 tracking-tight">{post.data.title}</h1>
         <div class="flex flex-wrap text-sm text-gray-400 gap-x-6 gap-y-2 mb-10">
             <span>{post.data.author}</span>
-            <span>发布于: {post.data.pubDate}</span>
+            <span>发布于: {post.data.pubDate.toLocaleString(undefined, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}</span>
             {
                 post.data.tag && (
                     <span>
