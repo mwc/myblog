@@ -1,12 +1,12 @@
 export function sortPosts(posts) {
     return posts.sort((a, b) => {
-        return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
+        return b.data.pubDate.getTime() - a.data.pubDate.getTime()
     })
 }
 
 export function getTags(posts) {
     return posts.reduce((set, post) => {
-        let tag = new Set<string>(post.frontmatter?.tag)
+        let tag = new Set<string>(post.data?.tag)
 
         for (const item of tag) {
             set[item] = (set[item] ?? 0) + 1

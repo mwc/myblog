@@ -2,15 +2,16 @@
 import type { GetStaticPaths } from 'astro'
 import { sortPosts, getTags } from '@lib/util'
 import { Page } from '@components'
+import { getCollection } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const posts = await Astro.glob('/src/pages/posts/**/*.{md,mdx}')
+    const posts = await getCollection('posts')
     const sorted = sortPosts(posts)
     const tags = getTags(posts)
 
     return Object.keys(tags).flatMap((tag) =>
         paginate(
-            sorted.filter((p) => p.frontmatter.tag?.includes(tag)),
+            sorted.filter((p) => p.data.tag?.includes(tag)),
             {
                 params: { path: tag ?? undefined },
                 props: { tag, tags },

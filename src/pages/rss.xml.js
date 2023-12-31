@@ -4,5 +4,5 @@ export const GET = async (context) => rss({
     title: "ZiYu's blog",
     description: "ZiYu's blog",
     site: context.site + context.base,
-    items: await pagesGlobToRssItems(import.meta.glob('./posts/**/*.{md,mdx}')),
+    items: await pagesGlobToRssItems(import.meta.glob('/src/content/posts/**/*.{md,mdx}')),
 })
