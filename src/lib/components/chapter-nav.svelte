@@ -26,12 +26,12 @@
 
 <span id="__page-chapter-selector"></span>
 <button
-    class="border sticky w-full top-0 z-50 box-border text-sm bg-gray-50 rounded-md shadow-sm focus-within:rounded-b-none px-3 py-1 cursor-pointer flex items-center justify-between group"
+    class="border dark:border-[#505050] sticky w-full top-0 z-50 box-border text-sm bg-gray-50 dark:bg-[#3f3f3f] rounded-md shadow-sm focus-within:rounded-b-none px-3 py-1 cursor-pointer flex items-center justify-between group"
 >
-    <div class="text-gray-600 group-hover:text-black">{current}</div>
+    <div class="text-gray-600 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">{current}</div>
     <svg
         viewBox="0 0 1024 1024"
-        class="h-8 w-8 text-gray-500 transition-all group-hover:text-black group-focus:rotate-180"
+        class="h-8 w-8 text-gray-500 dark:text-gray-300 transition-all group-hover:text-black dark:group-hover:text-white group-focus:rotate-180"
     >
         <path
             fill="currentColor"
@@ -39,11 +39,11 @@
         ></path>
     </svg>
     <ul
-        class="absolute hidden text-left group-focus-within:block bg-white max-h-[50vh] overflow-y-auto box-border shadow-sm rounded-b-md -left-px -right-px top-10 py-2 border"
+        class="absolute hidden text-left group-focus-within:block bg-white dark:bg-[#3f3f3f] max-h-[50vh] overflow-y-auto box-border shadow-sm rounded-b-md -left-px -right-px top-10 py-2 border dark:border-[#505050]"
     >
         <li>
             <a
-                class="block hover:bg-gray-100 !no-underline px-3 py-2"
+                class="block dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-black/15 !no-underline px-3 py-2"
                 href="#__page-top"
                 onclick={() => (current = '本文章节')}
             >
@@ -52,7 +52,7 @@
         </li>
         {#each headings as h (h.slug)}
             <li>
-                <a class={`block hover:bg-gray-100 !no-underline px-${h.depth * 3} py-2`} href={`#${h.slug}`}>
+                <a class={`block dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-black/15 !no-underline px-${h.depth * 3} py-2`} href={`#${h.slug}`}>
                     {h.text}
                 </a>
             </li>

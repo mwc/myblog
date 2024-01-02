@@ -12,7 +12,7 @@ const keys = Object.keys(tags)
             <ul role="list" class="list-disc ml-4">
                 {
                     page.data.map((post) => (
-                        <li>
+                        <li class="dark:text-gray-100">
                             <div class="flex items-start justify-between my-4 gap-x-4">
                                 <a class="break-words" href={`/myblog/${post.data.link}`}>
                                     {post.data.title}
@@ -41,7 +41,7 @@ const keys = Object.keys(tags)
             <Pager base={tag ? `/myblog/tags/${tag}` : '/myblog'} hideSigle {page} />
         </Subject>
         <Subject title="Tags">
-            <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs">
+            <div class="flex flex-wrap gap-x-8 gap-y-4 mt-2 text-sm max-w-xs dark:text-gray-100">
                 {
                     keys.map((tag) => (
                         <a href={`/myblog/tags/${tag}`}>

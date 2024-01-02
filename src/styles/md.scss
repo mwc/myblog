@@ -1,5 +1,5 @@
 .content {
-    @apply break-all text-gray-700 font-['微软雅黑','Microsoft_YaHei'];
+    @apply break-all text-gray-700 dark:text-gray-200 font-['微软雅黑','Microsoft_YaHei'];
 
     ul {
         @apply list-disc ml-4 leading-8;
@@ -15,7 +15,7 @@
     h4,
     h5,
     h6 {
-        @apply text-black font-bold my-8 [&_a_svg]:ml-2 [&_a_svg]:inline-block [&_a_svg]:w-5 [&_a_svg]:h-5 [&_a]:border-0 [&_a]:inline sm:[&_a]:hidden;
+        @apply text-black dark:text-gray-200 font-bold my-8 [&_a_svg]:ml-2 [&_a_svg]:inline-block [&_a_svg]:w-5 [&_a_svg]:h-5 [&_a]:border-0 [&_a]:inline sm:[&_a]:hidden;
 
         &:hover a {
             display: inline;
@@ -51,7 +51,7 @@
     }
 
     code {
-        @apply bg-slate-200/70 rounded px-2 py-[2px] mx-1 text-sm;
+        @apply bg-slate-200/70 dark:bg-black/50 dark:text-gray-300 rounded px-2 py-[2px] mx-1 text-sm;
     }
 
     img {
@@ -59,7 +59,7 @@
     }
 
     blockquote {
-        @apply my-6 border-l-2 border-l-gray-300 px-4 py-0 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
+        @apply my-6 border-l-2 border-l-gray-300 dark:border-l-gray-500 px-4 py-0 [&_p]:m-0 [&_p]:text-gray-500 [&_code]:bg-slate-200;
     }
 
     pre {
