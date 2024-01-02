@@ -1,0 +1,12 @@
+---
+import Layout from '@lib/layouts/base.astro'
+import '@src/styles/md.scss'
+
+const { frontmatter } = Astro.props
+---
+
+<Layout title={frontmatter.title}>
+    <div class="content">
+        <slot />
+    </div>
+</Layout>
