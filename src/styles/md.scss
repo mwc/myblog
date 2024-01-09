@@ -19,7 +19,7 @@
     h4,
     h5,
     h6 {
-        @apply text-black dark:text-gray-200 font-bold my-8 [&_a_svg]:ml-2 [&_a_svg]:inline-block [&_a_svg]:w-5 [&_a_svg]:h-5 [&_a]:border-0 [&_a]:inline sm:[&_a]:hidden;
+        @apply text-black dark:text-gray-200 font-bold mt-0 mb-8 [&_a_svg]:ml-2 [&_a_svg]:inline-block [&_a_svg]:w-5 [&_a_svg]:h-5 [&_a]:border-0 [&_a]:inline sm:[&_a]:hidden;
 
         &:hover a {
             display: inline;

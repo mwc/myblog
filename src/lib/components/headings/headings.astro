@@ -1,8 +1,8 @@
 ---
 const { id, tag: Tag } = Astro.props
 ---
-
-<Tag {id}>
+<span {id} class="block mb-5">&nbsp;</span>
+<Tag>
     <slot />
     <a href={`#${id}`}>
         <span aria-hidden="true">
